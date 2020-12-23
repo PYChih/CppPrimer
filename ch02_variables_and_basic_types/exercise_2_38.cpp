@@ -6,6 +6,7 @@
  */
 #include <iostream>
 int main()
+
 {
     int i = 10, *p=&i;
     decltype(*p) a = i ;// a will be int&
