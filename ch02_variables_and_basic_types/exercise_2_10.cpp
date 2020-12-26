@@ -1,11 +1,11 @@
 /*
  * 練習2.10: 下列每個變數各有什麼初始值呢(如果有的話)?
- *std::string global_str;
- *int global_int;
+ *std::string global_str; // global: ""
+ *int global_int; // 0
  *int main()
  *{
- *    int local_int;
- *    std:string local_str;
+ *    int local_int; // undefine
+ *    std:string local_str; // ""
  *}
  */
 /*

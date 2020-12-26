@@ -1,9 +1,9 @@
 /*
  * 練習2.9: 解釋下列定義。對那些不合法的定義，請解說何處出錯了，以及如何更正之。
-(a). std::cin >> int input_value;
-(b). int i = {3.14};
-(c). double salary = wage = 999.99;
-(d). int i = 3.14;
+(a). std::cin >> int input_value;//錯誤
+(b). int i = {3.14}; //警告，因為大括號
+(c). double salary = wage = 999.99;//錯誤，逗號分隔
+(d). int i = 3.14; //警告，值會被截斷
  */
 /*
  * g++ exercise_2_09.cpp && ./a.out
