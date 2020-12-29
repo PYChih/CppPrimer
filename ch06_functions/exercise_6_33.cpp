@@ -6,29 +6,34 @@
 #include<vector>
 using namespace std;
 
-
-void print_vec(vector<int> &ivec1)
+void print_vector(vector<int> &ivec, int index)
 {
-    auto beg = ivec1.begin();
-    auto end = ivec1.end();
-    while(beg!=end){
-        cout<<*beg<<endl;
-        ++beg;
-    }
-}
-
-void print_vec_recursion(vector<int> &ivec, unsigned index)
-{
-    unsigned sz = ivec.size();
-    if (!ivec.empty() && index < sz){
+    if (!ivec.empty() && index < ivec.size()){
         cout<<ivec[index]<<endl;
-        print_vec_recursion(ivec, index+1);
+        print_vector(ivec, index+1);
     }
 }
 
-int main() {
-    vector<int> ivec{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    print_vec(ivec);
-    print_vec_recursion(ivec, 0);
+int rec_factor(int val)
+{
 
+    if (val==0){
+        return 1;
+    }
+    if (val>=1){
+        return val * rec_factor(val-1);
+    }
+    return -1 ;
+}
+
+int main()
+{
+    vector<int> ivec{1, 2, 3, 4, 5};
+    print_vector(ivec, 0);
+    cout<< rec_factor(0) << endl;
+    cout<< rec_factor(1) << endl;
+    cout<< rec_factor(2) << endl;
+    cout<< rec_factor(3) << endl;
+
+    return 0;
 }

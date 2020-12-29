@@ -14,6 +14,6 @@ int factorial(int val)
 int main() 
 {
     factorial(10);
-    cout<<recfac(5)<<endl;
+    //cout<<recfac(5)<<endl;
 
 }

@@ -13,22 +13,9 @@ int factorial(int val)
     return 1;
 }
 
-int recfac(int val)
-{
-    int accval = 1;
-    if (val>1){
-        accval *= val;
-        return accval * recfac(val-1);
-    }else {
-        return accval;
-    }
-    
-}
-
-
 int main() 
 {
     factorial(10);
-    cout<<recfac(5)<<endl;
+    cout<<factorial(10)<<endl;
 
 }
