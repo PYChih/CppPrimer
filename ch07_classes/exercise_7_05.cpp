@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <string>
-#include "Sales_data_7_1.h"
 using namespace std;
 
 struct Person

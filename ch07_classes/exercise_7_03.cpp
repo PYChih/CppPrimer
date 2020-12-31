@@ -1,5 +1,6 @@
 /*
 - 練習7.3: 修改$7.1.1你寫的交易處理程式，使用那些成員
+g++ exercise_7_03.cpp && ./a.out <data/book_sales
  */
 
 #include <iostream>
