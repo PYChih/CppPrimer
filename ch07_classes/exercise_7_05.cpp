@@ -8,13 +8,16 @@ using namespace std;
 
 struct Person
 {
-	std::string name;
-	std::string address;
-    std::string printName() const {return name;}
-    std::string printAddress() const {return address;}
+	string name = "user_1";
+	string address = "Taiwan";
+    string getName() const {return name;}
+    string getAddress() const {return address;}
 };
 
 int main()
 {
+    Person p1;
+    cout << "p1 name : " << p1.getName() << " ; "
+         << "p1 address : " << p1.getAddress() << endl;
     return 0;
 }

@@ -1,21 +1,20 @@
 /*
-- ==練習7.12==: 將接受一個istream的Sales_data建構器之定義移到Sales_data類別的主體中。
+練習7.12: 將接受一個istream的Sales_data建構器之定義移到Sales_data類別的主體中。
  */
-#include <string>
+
 #include <iostream>
+#include <string>
 using namespace std;
-
-
+struct Sales_data;
+istream & read(istream &, Sales_data &);
 struct Sales_data
 {
-    std::istream &read(std::istream&, Sales_data);
-    //constructors
     Sales_data() = default;
-    Sales_data(const std::string &s) : bookNo(s){}
-    Sales_data(const std::string &s, unsigned n, double p): bookNo(s), units_sold(n), revenue(p*n){}
-    Sales_data(std::istream &is){read(is, *this);};//{ is >> *this;}
-    //members
-    std::string isbn() const {return bookNo;}
+    Sales_data(const string &s) : bookNo(s) {}
+    Sales_data(const string &s, unsigned n, double p):
+        bookNo(s), units_sold(n), revenue(p*n) { }
+    Sales_data(istream &is){read(is, *this);}
+    string isbn() const {return bookNo;}
     Sales_data& combine(const Sales_data&);
     double avg_price() const {
         if (units_sold)
@@ -36,17 +35,19 @@ Sales_data& Sales_data::combine(const Sales_data &rhs)
     revenue += rhs.revenue;
     return *this; //回傳在其上這個函式被呼叫的那個物件
 }
-std::istream &read(std::istream &is, Sales_data &item)
+istream &read(istream &is, Sales_data &item)
 {
     double price = 0;
     is >> item.bookNo >> item.units_sold >> price;
     item.revenue = price * item.units_sold;
     return is;
 }
-std::ostream &print(std::ostream &os, const Sales_data &item)
+ostream &print(ostream &os, const Sales_data &item)
 {
-    os << item.isbn() << " " << item.units_sold << " "
-       << item.revenue << " " << item.avg_price();
+    os << "isbn : " <<item.isbn() << " " 
+         << "unit sold : " << item.units_sold << " "
+         << "revenue : "<< item.revenue << " "
+         << "average price : " << item.avg_price();
     return os;
 }
 Sales_data add(const Sales_data &lhs, const Sales_data &rhs)

@@ -4,9 +4,7 @@
 
 #include <iostream>
 #include <string>
-
 using namespace std;
-
 struct Sales_data
 {
     std::string isbn() const {return bookNo;}
@@ -39,8 +37,10 @@ istream &read(istream &is, Sales_data &item)
 }
 ostream &print(ostream &os, const Sales_data &item)
 {
-    os << item.isbn() << " " << item.units_sold << " "
-       << item.revenue << " " << item.avg_price();
+    os << "isbn : " <<item.isbn() << " " 
+         << "unit sold : " << item.units_sold << " "
+         << "revenue : "<< item.revenue << " "
+         << "average price : " << item.avg_price();
     return os;
 }
 Sales_data add(const Sales_data &lhs, const Sales_data &rhs)
@@ -49,9 +49,9 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs)
     sum.combine(rhs);
     return sum;
 }
-
 int main()
 {
     Sales_data item;
+    print(cout, item) << endl;
     return 0;
 }

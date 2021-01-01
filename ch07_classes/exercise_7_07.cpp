@@ -5,8 +5,8 @@ g++ exercise_7_07.cpp && ./a.out <data/book_sales
 
 #include <iostream>
 #include <string>
-#include "Sales_data_7_1_3.h"
 using namespace std;
+#include "Sales_data_7_1_3.h"
 
 int main()
 {

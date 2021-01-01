@@ -12,8 +12,9 @@ g++ exercise_7_01.cpp && ./a.out <data/book_sales
 
 #include <iostream>
 #include <string>
-#include "Sales_data.h"
 using namespace std;
+#include "Sales_data.h"
+
 
 int main()
 {

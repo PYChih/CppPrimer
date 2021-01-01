@@ -4,17 +4,16 @@
 
 #include <iostream>
 #include <string>
-#include "Sales_data_7_1.h"
 using namespace std;
 
 struct Person
 {
-	std::string name;
-	std::string address;
+	string name;
+	string address;
 };
 
 int main()
 {
-    Sales_data total;
+    Person total;
     return 0;
 }

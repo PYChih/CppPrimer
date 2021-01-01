@@ -11,11 +11,11 @@ using namespace std;
 struct Person
 {
     // member data
-	std::string name;
-	std::string address;
+	string name;
+	string address;
     // member function
-    std::string printName() const {return name;}
-    std::string printAddress() const {return address;}
+    string printName() const {return name;}
+    string printAddress() const {return address;}
 };
 istream& read(istream & is, Person& ps)
 {
@@ -24,11 +24,16 @@ istream& read(istream & is, Person& ps)
 }
 ostream& print(ostream &os, const Person& ps)
 {
-    os << ps.name << ps.address;
+    os << ps.name << " "
+       << ps.address;
     return os;
 }
 
 int main()
 {
+    Person p;
+    while(read(cin, p)){
+        print(cout, p) << endl;
+    }
     return 0;
 }

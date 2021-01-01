@@ -1,17 +1,19 @@
-/*
-- 練習7.11: 為你的Sales_data類別新增建構器，並寫一個程式來使用那每一個建構器。
- */
-
 #include <iostream>
 #include <string>
 using namespace std;
-struct Sales_data
+#ifndef SALES_DATA_H
+#define SALES_DATA_H
+class Sales_data
 {
-    Sales_data() = default;
+    friend Sales_data add(const Sales_data &lhs, const Sales_data &rhs);
+    friend ostream &print(ostream &os, const Sales_data &item);
+    friend istream &read(istream &is, Sales_data &item);
+    public:
+    Sales_data(): bookNo(""), units_sold(0), revenue(0){}
     Sales_data(const string &s) : bookNo(s) {}
     Sales_data(const string &s, unsigned n, double p):
         bookNo(s), units_sold(n), revenue(p*n) { }
-    Sales_data(istream &);
+    Sales_data(istream &is){read(is, *this);}
     string isbn() const {return bookNo;}
     Sales_data& combine(const Sales_data&);
     double avg_price() const {
@@ -21,8 +23,8 @@ struct Sales_data
         {
             return 0;
         }
-        
     }
+    private:
 	std::string bookNo;
 	unsigned int units_sold = {0};
 	double revenue = {0.0};
@@ -54,20 +56,4 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs)
     sum.combine(rhs);
     return sum;
 }
-Sales_data::Sales_data(std::istream & is){
-    read(is, *this);
-}
-int main(){
-    cout << "default constructor"<<endl;
-    Sales_data item_default;
-    print(cout, item_default)<<endl;
-    cout << "isbn only"<<endl;
-    Sales_data item_isbn("99999");
-    print(cout, item_isbn)<<endl;
-    cout << "isbn, units_sold, price"<<endl;
-    Sales_data item("11111", 10, 9);
-    print(cout, item)<<endl;
-    cout << "cin item" << endl;
-    Sales_data cinitem(cin);
-    print(cout, cinitem)<< endl;
-}
+#endif

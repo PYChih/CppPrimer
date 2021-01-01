@@ -5,6 +5,15 @@ struct Sales_data
 {
     std::string isbn() const {return bookNo;}
     Sales_data& combine(const Sales_data&);
+    double avg_price() const {
+        if (units_sold)
+            return revenue/units_sold;
+        else
+        {
+            return 0;
+        }
+        
+    }
 	std::string bookNo;
 	unsigned int units_sold = {0};
 	double revenue = {0.0};
