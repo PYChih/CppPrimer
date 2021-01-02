@@ -10,7 +10,7 @@ class Screen{
     public:
         typedef string::size_type pos;
         Screen()=default;
-        Screen(pos ht, pos wd) : width(wd), height(ht) {}
+        Screen(pos ht, pos wd) : width(wd), height(ht), contents(wd*ht, ' ') {}
         Screen(pos ht, pos wd, char c) : width(wd), height(ht), contents(ht*wd, c) {}
 
     private:
