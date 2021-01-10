@@ -1,0 +1,12 @@
+The state of the art in machine learning (ML) 
+has achieved exceptional accuracy on many computer 
+vision tasks solely by training models on photos. 
+Building upon these successes and advancing 3D object 
+understanding has great potential to power a wider range 
+of applications, such as augmented reality, robotics, 
+autonomy, and image retrieval. For example, earlier 
+this year we released MediaPipe Objectron,
+ a set of real-time 3D object detection models 
+ designed for mobile devices, which were trained 
+ on a fully annotated, real-world 3D dataset, 
+ that can predict objects’ 3D bounding boxes.
