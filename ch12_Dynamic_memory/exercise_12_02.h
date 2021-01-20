@@ -1,17 +1,9 @@
-// Exercise 12.02:
-//  Write your own version of the StrBlob class including the const versions of front and back.
-#include <iostream>
 #include <vector>
 #include <string>
-#include <memory>
 #include <initializer_list>
-#include <stdexcept>
-using std::vector;
-using std::string;
-using std::shared_ptr;
-using std::make_shared;
-using std::initializer_list;
-using std::out_of_range;
+#include <memory>
+#include <exception>
+using std::vector; using std::string; using std::initializer_list; using std::shared_ptr; using std::make_shared;
 class StrBlob {
 public:
     typedef vector<string>::size_type size_type;
@@ -36,7 +28,7 @@ StrBlob::StrBlob(initializer_list<string> il):
 void StrBlob::check(size_type i, const string &msg) const
 {
     if (i>=data->size())
-        throw out_of_range(msg);
+        throw std::out_of_range(msg);
 }
 string& StrBlob::front()
 {
@@ -60,16 +52,4 @@ const string& StrBlob::front() const{
 const string& StrBlob::back() const{
     check(0, "back on empty StrBlob");
     return data->back();
-}
-
-int main()
-{
-    StrBlob b1;
-    {
-        StrBlob b2 = {"a", "an", "the"};
-        b1 = b2;
-        b2.push_back("about");
-    }
-    std::cout<<b1.front()<<" "<<b1.back()<<std::endl;
-    return 0;
 }
