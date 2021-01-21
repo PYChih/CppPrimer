@@ -1,5 +1,5 @@
-#ifndef CH12_DYNAMIC_MEMORY_EXERCISE_12_02_H_
-#define CH12_DYNAMIC_MEMORY_EXERCISE_12_02_H_
+#ifndef CH13_COPY_CONTROL_EXERCISE_13_03_H_
+#define CH13_COPY_CONTROL_EXERCISE_13_03_H_
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -23,6 +23,7 @@ class StrBlob {
     string& back();
     const string& front() const;
     const string& back() const;
+    int count() { return data.use_count(); }
  private:
     shared_ptr<vector<string>> data;
     void check(size_type i, const string &msg) const;
@@ -54,4 +55,4 @@ const string& StrBlob::back() const {
     check(0, "back on empty StrBlob");
     return data->back();
 }
-#endif  // CH12_DYNAMIC_MEMORY_EXERCISE_12_02_H_
+#endif  // CH13_COPY_CONTROL_EXERCISE_13_03_H_

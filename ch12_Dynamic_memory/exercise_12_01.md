@@ -9,4 +9,4 @@ StrBlob b1;
 }
 ```
 - b1 : 4
-- b2 : meaningless 
+- b2 : meaningless : b2 is undefined
