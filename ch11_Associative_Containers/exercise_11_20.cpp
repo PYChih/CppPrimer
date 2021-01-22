@@ -8,8 +8,8 @@
 using namespace std;
 # include"Sales_data.h"
 
-#include<algorithm>
-#include<set>
+#include <algorithm>
+#include <set>
 #include <map>
 
 int main(){
