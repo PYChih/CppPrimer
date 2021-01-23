@@ -5,3 +5,5 @@ std::string& deref() const
 { return (*check(curr, "dereference past end"))[curr]; }
 ```
 >Which version do you think is better and why?
+
+original: readable...
