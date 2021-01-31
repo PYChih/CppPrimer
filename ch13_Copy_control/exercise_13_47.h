@@ -1,5 +1,5 @@
-#ifndef CH13_COPY_CONTROL_EXERCISE_13_44_H_
-#define CH13_COPY_CONTROL_EXERCISE_13_44_H_
+#ifndef CH13_COPY_CONTROL_EXERCISE_13_47_H_
+#define CH13_COPY_CONTROL_EXERCISE_13_47_H_
 #include <utility>
 #include <memory>
 class String {
@@ -27,4 +27,4 @@ class String {
   char *first_free;  // pointer to first free element
   char *cap;  // off the end
 };
-#endif  // CH13_COPY_CONTROL_EXERCISE_13_44_H_
+#endif  // CH13_COPY_CONTROL_EXERCISE_13_47_H_
