@@ -1,4 +1,6 @@
 # compiled Object files
 *.o
+# Precompiled Headers
+*.gch
 # Executables
 *.out
