@@ -1,6 +1,7 @@
 // Exercise 14.07
 //  Define an output operator for you String class
 //  you wrote for the exercises in 13.5 (p. 531).
+// copy from 13.48
 // String_14_07.h, String_14_07.cc
 // g++ -c String_14_07.cc exercise_14_07.cc
 // g++ String_14_07.o exercise_14_07.o && ./a.out

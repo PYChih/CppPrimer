@@ -1,4 +1,4 @@
-// Exercise 14.06
+// Exercise 14.09
 //  Define an input operator for your Sales_data class.
 // Sales_data_14_09.h, Sales_data_14_09.cc
 // g++ -c exercise_14_09.cc Sales_data_14_09.cc
