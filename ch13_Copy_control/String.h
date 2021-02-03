@@ -11,7 +11,7 @@ class String {
     String &operator=(const String& rhs);  // copy assign operator
     String(String &&s) noexcept;  // move constructor
     String &operator=(String &&rhs) noexcept;  // move-assignment operator
-    ~String() { free(); }  // destructure
+    ~String() { free(); }  // destructor
     void push_back(const char& c);
     size_t size() const { return first_free - elements; }
     size_t capacity() const { return cap - elements; }
