@@ -1,11 +1,4 @@
-// Exercise 14.02
-//    Write declarations for the overloaded
-//    input,
-//    output,
-//    addition,
-//    and compound-assignment operators for Sales_data.
-//    see exercise 7.41
-#include "exercise_14_02.h"  // NOLINT
+#include "Sales_data_14_09.h"  // NOLINT
 using std::string;
 using std::cout;
 using std::endl;
@@ -33,4 +26,21 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs) {
   Sales_data sum = lhs;
   sum.combine(rhs);
   return sum;
+}
+ostream &operator<<(ostream &os, const Sales_data &item) {
+  os << "isbn : " << item.isbn() << " "
+     << "unit sold : " << item.units_sold << " "
+     << "revenue : " << item.revenue << " "
+     << "average price : " << item.avg_price();
+  return os;
+}
+istream &operator>>(istream &is, Sales_data &item) {
+  double price;
+  is >> item.bookNo >> item.units_sold >> price;
+  if (is) {
+    item.revenue = price * item.units_sold;
+  } else {
+    item = Sales_data();
+  }
+  return is;
 }

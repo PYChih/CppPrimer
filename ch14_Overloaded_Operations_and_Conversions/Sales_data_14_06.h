@@ -1,5 +1,5 @@
-#ifndef CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_EXERCISE_14_02_H_
-#define CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_EXERCISE_14_02_H_
+#ifndef CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_SALES_DATA_14_06_H_
+#define CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_SALES_DATA_14_06_H_
 #include <iostream>
 #include <string>
 class Sales_data {
@@ -41,4 +41,7 @@ class Sales_data {
   unsigned units_sold = 0;
   double revenue = 0.0;
 };
-#endif  // CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_EXERCISE_14_02_H_
+Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs);
+std::ostream &operator<<(std::ostream &os, const Sales_data &item);
+std::istream &operator>>(std::istream &is, Sales_data &item);
+#endif  // CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_SALES_DATA_14_06_H_

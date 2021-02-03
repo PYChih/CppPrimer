@@ -1,11 +1,5 @@
-// Exercise 13.44
-//  Write a class named String that is
-//  a simplified version of the library string class.
-//  Your class should have at least a default constructor
-//  and a constructor that takes a pointer to a C-style string.
-//  Use an allocator to allocate memory that your String class uses.
 #include <cstring>
-#include "exercise_13_44.h"  // NOLINT
+#include "String_14_07.h"  // NOLINT
 using std::allocator;
 using std::pair;
 using std::uninitialized_copy;
@@ -60,4 +54,12 @@ String::String(const char* char_arr) {
     } else {
       elements = first_free = cap = nullptr;
     }
+}
+std::ostream &operator<<(std::ostream &os, const String &s) {
+  auto beg = s.elements;
+  while (beg != s.first_free) {
+    os << *beg;
+    ++beg;
+  }
+  return os;
 }
