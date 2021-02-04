@@ -1,7 +1,12 @@
-#include "StrVec_14_18.h"  // NOLINT
+#include "StrVec_14_26.h"  // NOLINT
 using std::make_pair;
+using std::string;
+using std::allocator;
+using std::pair;
+using std::initializer_list;
+using std::size_t;
 allocator<string> StrVec::alloc;
-void StrVec::push_back(const string& s) {
+void StrVec::push_back(const string &s) {
   chk_n_alloc();
   alloc.construct(first_free++, s);
 }
@@ -44,13 +49,26 @@ StrVec &StrVec::operator=(StrVec &&rhs) noexcept {
 StrVec::~StrVec() {
   free();
 }
-StrVec& StrVec::operator=(const StrVec& sv) {
+StrVec& StrVec::operator=(const StrVec &sv) {
   pair<string*, string*> new_data = alloc_n_copy(sv.begin(), sv.end());
   free();
   elements = new_data.first;
   first_free = new_data.second;
   cap = new_data.second;
   return *this;
+}
+StrVec &StrVec::operator=(initializer_list<string> il) {
+  auto data = alloc_n_copy(il.begin(), il.end());
+  free();
+  elements = data.first;
+  first_free = cap = data.second;
+  return *this;
+}
+string &StrVec::operator[](size_t n) {
+  return elements[n];
+}
+const string &StrVec::operator[](size_t n) const {
+  return elements[n];
 }
 void StrVec::reallocate() {
   size_t new_capacity = size() ? size() * 2 : 1;

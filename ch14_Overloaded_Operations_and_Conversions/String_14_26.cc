@@ -1,5 +1,5 @@
 #include <cstring>
-#include "String_14_18.h"  // NOLINT
+#include "String_14_26.h"  // NOLINT
 using std::allocator;
 using std::pair;
 using std::uninitialized_copy;
@@ -72,6 +72,12 @@ String::String(const char* char_arr) {
     } else {
       elements = first_free = cap = nullptr;
     }
+}
+char &String::operator[](std::size_t n) {
+  return *(elements + n);
+}
+const char &String::operator[](std::size_t n) const {
+  return *(elements + n);
 }
 std::ostream &operator<<(std::ostream &os, const String &s) {
   auto beg = s.elements;

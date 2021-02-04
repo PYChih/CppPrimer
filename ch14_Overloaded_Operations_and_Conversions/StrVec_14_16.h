@@ -17,11 +17,11 @@ class StrVec {
     elements(nullptr), first_free(nullptr), cap(nullptr) { }
   StrVec(const StrVec &sv);  // copy constructor
   StrVec(initializer_list<string> il);  // NOLINT
-  StrVec &operator=(const StrVec&);  // copy-assignment operator
+  StrVec &operator=(const StrVec &sv);  // copy-assignment operator
   ~StrVec();  // destructor
   StrVec(StrVec &&sv) noexcept;  // move constructor
   StrVec &operator=(StrVec &&rhs) noexcept;  // move-assignment operator
-  void push_back(const string&);  // const reference push_back
+  void push_back(const string &s);  // const reference push_back
   size_t size() const { return first_free - elements; }
   size_t capacity() const { return cap - elements; }
   string *begin() const { return elements; }

@@ -1,5 +1,5 @@
-#ifndef CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_STRVEC_14_18_H_
-#define CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_STRVEC_14_18_H_
+#ifndef CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_STRVEC_14_23_H_
+#define CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_STRVEC_14_23_H_
 #include <string>
 #include <memory>
 #include <utility>
@@ -18,11 +18,12 @@ class StrVec {
   StrVec():
     elements(nullptr), first_free(nullptr), cap(nullptr) { }
   StrVec(const StrVec &sv);  // copy constructor
-  StrVec(initializer_list<string> il);  // NOLINT
+  StrVec(std::initializer_list<std::string> il);  // NOLINT
   StrVec &operator=(const StrVec &sv);  // copy-assignment operator
   ~StrVec();  // destructor
   StrVec(StrVec &&sv) noexcept;  // move constructor
   StrVec &operator=(StrVec &&rhs) noexcept;  // move-assignment operator
+  StrVec &operator=(std::initializer_list<std::string> il);
   void push_back(const string &s);  // const reference push_back
   size_t size() const { return first_free - elements; }
   size_t capacity() const { return cap - elements; }
@@ -47,4 +48,4 @@ bool operator==(const StrVec &lhs, const StrVec &rhs);
 bool operator!=(const StrVec &lhs, const StrVec &rhs);
 bool operator<(const StrVec &lhs, const StrVec &rhs);
 bool operator>(const StrVec &lhs, const StrVec &rhs);
-#endif  // CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_STRVEC_14_18_H_
+#endif  // CH14_OVERLOADED_OPERATIONS_AND_CONVERSIONS_STRVEC_14_23_H_
