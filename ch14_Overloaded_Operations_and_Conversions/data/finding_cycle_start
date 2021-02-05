@@ -1,0 +1,105 @@
+Explain how finding cycle start node in cycle linked list work?
+
+I understand that Tortoise and Hare's meeting concludes the existence
+of loop, but how does moving tortoise to beginning of linked list while
+keeping the hare at meeting place, followed by moving both one step at a
+time make them meet at starting point of cycle?
+
+This is Floyd's algorithm for cycle detection. 
+You are asking about the second phase of the algorithm -- 
+once you've found a node that's part of a cycle, 
+how does one find the start of the cycle?
+
+In the first part of Floyd's algorithm, 
+the hare moves two steps for every step of 
+the tortoise. If the tortoise and hare ever meet, 
+there is a cycle, and the meeting point is part of 
+the cycle, but not necessarily the first node in the cycle.
+
+When the tortoise and hare meet, we have found the smallest i
+(the number of steps taken by the tortoise) such that Xi = X2i.
+Let mu represent the number of steps to get from X0 to the start
+of the cycle, and let lambda represent the length of the cycle.
+Then i = mu + alambda, and 2i = mu + blambda, where a and b are integers 
+denoting how many times the tortoise and hare went around the cycle.
+Subtracting the first equation from the second gives i = (b-a)*lambda, so
+i is an integer multiple of lambda. Therefore, Xi + mu = Xmu. Xi represents
+the meeting point of the tortoise and hare. If you move the tortoise back to the
+starting node X0, and let the tortoise and hare continue at the same speed,
+after mu additional steps the tortoise will have reached Xmu, and the hare will have
+reached Xi + mu = Xmu, so the second meeting point denotes the start of the cycle.
+
+Let me try to clarify the cycle detection algorithm that is provided at http://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare in my own words.
+drawing
+How it works
+Let's have a tortoise and a hare (name of the pointers) pointing to the beginning of the list with a cycle, as in the diagram above.
+Let's hypothesize that if we move tortoise 1 step at a time, and hare 2 steps at a time,
+they will eventually meet at a point. Let's show that first of all this hypothesis is true.
+The figure illustrates a list with a cycle. The cycle has a length of n and we are initially m steps
+away from the cycle. Also let's say that the meeting point is k steps away from the cycle beginning
+and tortoise and hare meets when tortoise has taken i total steps. (Hare would have taken 2i total steps by then.).
+The following 2 conditions must hold:
+1) i = m + p * n + k
+2) 2i = m + q * n + k
+The first one says that tortoise moves i steps and in these i steps
+it first gets to the cycle. Then it goes through the cycle p times
+for some positive number p. Finally it goes over k more nodes until it meets hare.
+A similar is true for hare. It moves 2i steps and in these 2i steps it
+first gets to the cycle. Then it goes through the cycle q times for some
+positive number q. Finally it goes over k more nodes until it meets tortoise.
+As hare travels with double the speed of tortoise, and time is constant for
+both when they reach the meeting point.
+So by using simple speed, time and distance relation,
+2 ( m + p * n + k ) = m + q * n + k
+=> 2m + 2pn + 2k = m + nq + k 
+=>  m + k = ( q - 2p ) n
+Among m, n, k, p, q, the first two are properties of the given list.
+If we can show that there is at least one set of values for k, q, p
+that makes this equation true we show that the hypothesis is correct.
+One such solution set is as follows:
+p = 0
+q = m
+k = m n - m
+We can verify that these values work as follows:
+m + k = ( q - 2p ) n
+=> m + mn - m = ( m - 2*0) n
+=> mn = mn.
+For this set, i is
+i = m + p n + k
+=> m + 0 * n + mn - m = mn.
+Of course, you should see that this is not
+necessarily the smallest i possible.
+In other words, tortoise and hare might have already met before many times.
+However, since we show that they meet at some point at least once we can say
+that the hypothesis is correct. So they would have to meet if we move one of them 1 step,
+and the other one 2 steps at a time.
+Now we can go to the second part of the algorithm which is how to find the beginning of the cycle.
+Cycle Beginning
+Once tortoise and hare meet, let's put tortoise back to the
+beginning of the list and keep hare where they met (which is k steps away from the cycle beginning).
+The hypothesis is that if we let them move at the same
+speed (1 step for both), the first time they ever meet again will be the cycle beginning.
+Let's prove this hypothesis.
+Let's first assume some oracle tells us what m is.
+Then, if we let them move m + k steps, tortoise would have to
+arrive at the point they met originally (k steps away from the cycle beginning - see in the figure).
+Previously we showed that m + k = (q - 2p) n.
+Since m + k steps is a multiple of cycle length n, hare,
+in the mean time, would go through the cycle (q-2p) times
+and would come back to the same point (k steps away from the cycle beginning).
+Now, instead of letting them move m + k steps, if we let
+them move only m steps, tortoise would arrive at the cycle beginning.
+Hare would be k steps short of completing (q-2p) rotations. Since it
+started k steps in front of the cycle beginning, hare would have to arrive
+at the cycle beginning.
+As a result, this explains that they would have to meet at the
+cycle beginning after some number of steps for the very first time
+(very first time because tortoise just arrived at the cycle after m
+steps and it could never see hare which was already in the cycle).
+Now we know that the number of steps we need to move them until
+they meet turns out to be the distance from the beginning of the list
+to the cycle beginning, m. Of course, the algorithm does not need to know
+what m is. It will just move both tortoise and hare one step at a time until
+they meet. The meeting point has to be the cycle start and the number of steps
+must be the distance (m) to the cycle beginning. Assuming we know the length of the
+list, we can also, compute the length of the cycle of subtracting m from the list length.
