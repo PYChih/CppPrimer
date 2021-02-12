@@ -6,7 +6,7 @@ class Query_base {
   friend class Query;
 
  protected:
-  // using line_no = TextQuery::line_no;  // for eval
+  using line_no = TextQuery::line_no;  // for eval
   virtual ~Query_base() = default;
 
  private:

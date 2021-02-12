@@ -28,8 +28,8 @@ class Query {
   }
   std::shared_ptr<Query_base> q;
 };
-std::ostream &operator<<(std::ostream &os, const Query &query) {
-  return os << query.rep();
-}
+std::ostream &operator<<(std::ostream &os, const Query &query);
 Query operator~(const Query &);
+Query operator|(const Query&, const Query&);
+Query operator&(const Query&, const Query&);
 #endif  // QUERY_H_

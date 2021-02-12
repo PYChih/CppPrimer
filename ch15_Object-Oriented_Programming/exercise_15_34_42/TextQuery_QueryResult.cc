@@ -1,4 +1,5 @@
 #include "TextQuery_QueryResult.h"
+using line_no = TextQuery::line_no;
 TextQuery::TextQuery(std::ifstream &in):
   content(new std::vector<std::string>) {
   std::string line;
@@ -10,14 +11,14 @@ TextQuery::TextQuery(std::ifstream &in):
     while (record >> word) {
       auto &lines = word2line_set[word];
       if (!lines)
-        lines.reset(new std::set<int>);
+        lines.reset(new std::set<line_no>);
       lines->insert(line_cnt);
     }
     ++line_cnt;
     }
 }
 QueryResult TextQuery::query(const std::string &word) const {
-  static std::shared_ptr<std::set<int>> nodata(new std::set<int>);
+  static std::shared_ptr<std::set<line_no>> nodata(new std::set<line_no>);
   auto it = word2line_set.find(word);
   if (it == word2line_set.end()) {
       QueryResult qr(word, nodata, content);
@@ -44,9 +45,20 @@ std::ostream &print(std::ostream &os, const QueryResult &qr) {
 std::shared_ptr<std::vector<std::string>> QueryResult::get_file() {
   return content_ptr;
 }
-std::set<int>::iterator QueryResult::begin() {
+std::set<line_no>::iterator QueryResult::begin() {
   return line_set->begin();
 }
-std::set<int>::iterator QueryResult::end() {
+std::set<line_no>::iterator QueryResult::end() {
   return line_set->end();
+}
+std::ostream &operator<<(std::ostream &os,
+                  const QueryResult &qr) {
+  os << qr.word << " occur " << (*qr.line_set).size()
+     << make_plural((*qr.line_set).size(), " time")
+     << std::endl;
+  for (auto i : *qr.line_set) {
+      os << "(line " << i+1 << ") "
+         << (*qr.content_ptr)[i] << std::endl;
+  }
+  return os;
 }
