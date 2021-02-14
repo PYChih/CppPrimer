@@ -3,22 +3,52 @@
 ## 目錄
 - [x] 1 快速入門
 - 第一篇 基本要素
+  - [note]
+  - [exercise](https://github.com/PYChih/Cpp_Primer/tree/main/ch01_getting_started)
 - [x] 2 變數和基本型別
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch02_variables_and_basic_types/Ch02_Variables_and_Basic_Types.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch02_variables_and_basic_types/README.md)
 - [x] 3 字串、向量與陣列
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch03_strings_vectors_and_arrays/Ch03_Strings_Vectors_and_Arrays.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch03_strings_vectors_and_arrays/README.md)
 - [x] 4 運算式
+  - [note]
+  - [exercise](https://github.com/PYChih/Cpp_Primer/tree/main/ch04_expressions)
 - [x] 5 述句
+  - [note]
+  - [exercise](https://github.com/PYChih/Cpp_Primer/tree/main/ch05_statements) 
 - [x] 6 函式
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch06_functions/ch06_Functions.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch06_functions/README.md) 
 - [x] 7 類別
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch07_classes/ch07_Classes.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch07_classes/README.md) 
 - 第二篇 C++ 程式庫
 - [x] 8 IO程式庫
+  - [note]
+  - [exercise](https://github.com/PYChih/Cpp_Primer/tree/main/ch08_the_io_library) 
 - [x] 9 循序容器
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch09_sequential_containers/Ch09_Sequential_Containers.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch09_sequential_containers/README.md)
 - [x] 10 泛用演算法
+  - [note]
+  - [exercise](https://github.com/PYChih/Cpp_Primer/tree/main/ch10_generic_algorithm) 
 - [x] 11 關聯式容器
+  - [note]
+  - [exercise](https://github.com/PYChih/Cpp_Primer/tree/main/ch11_Associative_Containers) 
 - [x] 12 動態記憶體
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch09_sequential_containers/ch12_Dynamic_memory.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch12_Dynamic_memory/README.md) 
 - 第三篇 給類別作者使用的工具
 - [x] 13 拷貝控制
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch13_Copy_control/Ch13_Copy_control.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch13_Copy_control/README.md)
 - [x] 14 重載的運算與轉換
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch14_Overloaded_Operations_and_Conversions/ch14_Overloaded_Operations_and_Conversions.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch14_Overloaded_Operations_and_Conversions/README.md) 
 - [x] 15 物件導向程式設計
+  - [note](https://github.com/PYChih/Cpp_Primer/blob/main/ch15_Object-Oriented_Programming/ch15_Object-Oriented_Programming.md)
+  - [exercise](https://github.com/PYChih/Cpp_Primer/blob/main/ch15_Object-Oriented_Programming/README.md)
 - [ ] 16 模板與泛型程式設計
 - 第四篇 進階主題
 - [ ] 17 特殊用途的程式庫機能
